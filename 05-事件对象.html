@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(document).on("click", function () {
+                console.log("点击了document");
+
+            })
+            $("div").on("click", function (event) { // e
+                // 事件参数对象：event
+                // event.target 指代了当前触发事件的事件源 -> div
+                console.log(event);
+                console.log("点击了div");
+                event.stopPropagation(); // （用的很多）阻止默认行为（冒泡模式）（捕获模式）
+                
+
+                // 阻止表单的提交动作
+                event.preventDefault()
+
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
